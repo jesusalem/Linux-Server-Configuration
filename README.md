@@ -1,4 +1,4 @@
-h1><a id="Linux_Server_configuration_0"></a>Linux Server configuration</h1>
+<h1><a id="Linux_Server_configuration_0"></a>Linux Server configuration</h1>
 <h3><a id="Introduction_2"></a>Introduction</h3>
 <p>This project is about configuring an Ubuntu Linux server to host a web application. The Catalog application will be hosted.</p>
 <p>This project is part of the Udacity Full Stack Web development Nanodegree, on which we learn the following</p>
