@@ -10,7 +10,7 @@
 <p>The site is located on <a href="http://54.83.157.49/">http://54.83.157.49/</a></p>
 <h1><a id="Steps_14"></a>Steps</h1>
 <h3><a id="Get_your_server_15"></a>Get your server.</h3>
-<p>#####1. Start a new Ubuntu Linux server instance on Amazon Lightsail.</p>
+<h5><a id="1_Start_a_new_Ubuntu_Linux_server_instance_on_Amazon_Lightsail_16"></a>1. Start a new Ubuntu Linux server instance on Amazon Lightsail.</h5>
 <ul>
 <li>For this just login to <a href="https://lightsail.aws.amazon.com/">https://lightsail.aws.amazon.com/</a>, follow the instructions and create an Ubuntu instance.</li>
 </ul>
