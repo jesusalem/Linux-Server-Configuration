@@ -69,26 +69,34 @@ sudo nano /etc/sudoers.d/grader
 </ul>
 <pre><code>cd ~/.ssh
 ssh-keygen
-Enter file in which to save the key (/c/Users/jmacias2/.ssh/id_rsa): graderKey
-cat graderKey.pub
 </code></pre>
 <ul>
-<li>Copy the public key from grader.pub<br>
-On our Ubuntu Linux server,</li>
+<li>Enter file in which to save the key: graderKey</li>
 </ul>
-<pre><code>mkdir .ssh
+<pre><code>cat graderKey.pub
+</code></pre>
+<ul>
+<li>Copy the public key from grader.pub</li>
+<li>On our Ubuntu Linux server, run the follwing</li>
+</ul>
+<pre><code>cd /home/grader
+mkdir .ssh
 touch .ssh.authorized_keys
 chmod 700 .ssh
 chmod 644 .ssh/authorized_keys
-ssh -i grader_key.rsa grader@54.83.157.49 -p 2200
 </code></pre>
-<h3><a id="Prepare_to_deploy_your_project_83"></a>Prepare to deploy your project.</h3>
-<h5><a id="9_Configure_the_local_timezone_to_UTC_84"></a>9. Configure the local timezone to UTC</h5>
+<ul>
+<li>Disconnect and run the following:</li>
+</ul>
+<pre><code>ssh -i grader_key.rsa grader@54.83.157.49 -p 2200
+</code></pre>
+<h3><a id="Prepare_to_deploy_your_project_89"></a>Prepare to deploy your project.</h3>
+<h5><a id="9_Configure_the_local_timezone_to_UTC_90"></a>9. Configure the local timezone to UTC</h5>
 <p><code>sudo dpkg-reconfigure tzdata</code></p>
 <ul>
 <li>On Geographic area select: None of the above.The select UTC on Time Zone.</li>
 </ul>
-<h5><a id="10_Install_and_configure_Apache_to_serve_a_Python_mod_wsgi_application_87"></a>10. Install and configure Apache to serve a Python mod_wsgi application.</h5>
+<h5><a id="10_Install_and_configure_Apache_to_serve_a_Python_mod_wsgi_application_93"></a>10. Install and configure Apache to serve a Python mod_wsgi application.</h5>
 <ul>
 <li>Run the following on the Ubuntu server.</li>
 </ul>
@@ -109,7 +117,7 @@ sudo mkdir catalog
 sudo chown -R grader:grader catalog
 cd catalog
 </code></pre>
-<h5><a id="11_Install_and_configure_PostgreSQL_Do_not_allow_remote_connections_and_create_a_new_database_user_named_catalog_105"></a>11. Install and configure PostgreSQL. Do not allow remote connections and create a new database user named catalog.</h5>
+<h5><a id="11_Install_and_configure_PostgreSQL_Do_not_allow_remote_connections_and_create_a_new_database_user_named_catalog_111"></a>11. Install and configure PostgreSQL. Do not allow remote connections and create a new database user named catalog.</h5>
 <pre><code>sudo apt-get install libpq-dev python-dev
 sudo apt-get install postgresql postgresql-contrib
 sudo -u postgres -i
@@ -121,18 +129,18 @@ CREATE DATABASE catalog WITH OWNER catalog;
 REVOKE ALL ON SCHEMA public FROM public;
 GRANT ALL ON SCHEMA public TO catalog;
 </code></pre>
-<h5><a id="12_Install_git_118"></a>12. Install git</h5>
+<h5><a id="12_Install_git_124"></a>12. Install git</h5>
 <ul>
 <li>Run the following<br>
 <code>sudo apt-get install git</code></li>
 </ul>
-<h3><a id="Deploy_the_Item_Catalog_project_122"></a>Deploy the Item Catalog project.</h3>
-<h5><a id="13_Clone_and_setup_your_Item_Catalog_project_from_the_Github_repository_you_created_earlier_in_this_Nanodegree_program_123"></a>13. Clone and setup your Item Catalog project from the Github repository you created earlier in this Nanodegree program.</h5>
+<h3><a id="Deploy_the_Item_Catalog_project_128"></a>Deploy the Item Catalog project.</h3>
+<h5><a id="13_Clone_and_setup_your_Item_Catalog_project_from_the_Github_repository_you_created_earlier_in_this_Nanodegree_program_129"></a>13. Clone and setup your Item Catalog project from the Github repository you created earlier in this Nanodegree program.</h5>
 <ul>
 <li>On the path /var/www/catalog run the following:<br>
 <code>git clone https://github.com/jesusalem/catalog-items.git catalog</code></li>
 </ul>
-<h5><a id="14_Set_it_up_in_your_server_so_that_it_functions_correctly_when_visiting_your_servers_IP__address_in_a_browser_128"></a>14. Set it up in your server so that it functions correctly when visiting your server’s IP  address in a browser.</h5>
+<h5><a id="14_Set_it_up_in_your_server_so_that_it_functions_correctly_when_visiting_your_servers_IP__address_in_a_browser_134"></a>14. Set it up in your server so that it functions correctly when visiting your server’s IP  address in a browser.</h5>
 <ul>
 <li>
 <p>Create wsgi file on /var/www/catalog/<br>
